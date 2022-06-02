@@ -35,6 +35,7 @@ body {
     background: #00202f;
     direction: rtl;
     line-height: 1.6em;
+    padding-top: 96px;
     font: 16px 'Almarai', sans-serif;
 }
 
@@ -106,14 +107,14 @@ a[href=""] {
     display: none;
 }
 
-a, input, select, textarea, button, .nav-link, .view-video {
+a, input, select, textarea, button, .view-video, .mirror {
     transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
 }
 
-.animate-box {
+.animate-box, .navbar-collapse {
     transition: all 0.8s ease-in-out;
     -o-transition: all 0.8s ease-in-out;
     -moz-transition: all 0.8s ease-in-out;
@@ -138,7 +139,8 @@ a, input, select, textarea, button, .nav-link, .view-video {
 
 .btn {
     position: relative;
-    border-radius: 0;
+    border-radius: 25px;
+    padding: 9px 15px;
 }
 
 .btn:focus {
@@ -377,6 +379,7 @@ a, input, select, textarea, button, .nav-link, .view-video {
 
 .simpleParallax, .parallax-img {
     height: 100%;
+    min-width: 100%;
 }
 
 .parallax-img.h-full {
@@ -407,7 +410,6 @@ a, input, select, textarea, button, .nav-link, .view-video {
 
 .parallax-img.h-full img {
     height: auto;
-    min-height: 100%;
 }
 
 .over-text {
@@ -478,10 +480,6 @@ a, input, select, textarea, button, .nav-link, .view-video {
     direction: ltr;
 }
 
-.owl-carousel .item {
-    min-height: 750px;
-}
-
 .owl-carousel img {
     min-height: 100%;
 }
@@ -532,10 +530,86 @@ a, input, select, textarea, button, .nav-link, .view-video {
 }
 
 /*--------------------------------------
+*********** CONTACT ***********
+--------------------------------------*/
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.z-5 {
+    z-index: 5;
+}
+
+.form-control, .form-control:focus {
+    border-radius: 25px;
+    padding: 10px;
+    background: rgba(9, 24, 35, 0.7);
+    border-color: transparent;
+    color: #c79a55;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+/*--------------------------------------
 *********** MEDIA ***********
 --------------------------------------*/
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        height: 100%;
+        width: 240px;
+        padding-top: 30px;
+        background: #091823;
+        box-shadow: -2px 0 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .collapse:not(.show) {
+        display: block !important;
+        transform: translateX(110%);
+        -webkit-transform: translateX(110%);
+    }
+
+    .collapse.show {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+
+    .mirror {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .collapse.show~.mirror {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+
+    .nav-link {
+        padding: 15px 10px;
+    }
+
+}
 
 @media (min-width: 768px) {
 
@@ -555,6 +629,12 @@ a, input, select, textarea, button, .nav-link, .view-video {
 
 }
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+
+    .owl-carousel .item {
+        min-height: 750px;
+    }
+
+}
 
 @media (min-width: 1200px) {}
