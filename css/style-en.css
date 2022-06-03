@@ -1,0 +1,33 @@
+.over-text h1, .over-text h2 {
+    text-transform: capitalize;
+}
+
+.over-text h1 {
+    font-size: 60px;
+}
+
+.over-text h2 {
+    font-size: 50px;
+}
+
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+        left: -1px;
+        box-shadow: 2px 0 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .collapse:not(.show) {
+        transform: translateX(-110%);
+        -webkit-transform: translateX(-110%);
+    }
+
+    .over-text h1 {
+        font-size: 40px;
+    }
+
+    .over-text h2 {
+        font-size: 30px;
+    }
+
+}

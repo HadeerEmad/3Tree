@@ -33,7 +33,6 @@ body {
     color: #fff;
     overflow: hidden;
     background: #00202f;
-    direction: rtl;
     line-height: 1.6em;
     padding-top: 96px;
     font: 16px 'Almarai', sans-serif;
@@ -383,19 +382,19 @@ a, input, select, textarea, button, .view-video, .mirror {
 }
 
 .parallax-img.h-full {
-    min-height: 300px;
-}
-
-.parallax-img.h-full.h-more {
-    min-height: 500px;
-}
-
-.parallax-img.h-full img {
     min-height: 400px;
 }
 
-.parallax-img.h-full.h-more img {
+.parallax-img.h-full.h-more {
     min-height: 600px;
+}
+
+.parallax-img.h-full img {
+    min-height: 450px;
+}
+
+.parallax-img.h-full.h-more img {
+    min-height: 650px;
 }
 
 .parallax-img img {
@@ -423,14 +422,6 @@ a, input, select, textarea, button, .view-video, .mirror {
 .over-text h1, .over-text h2, .main-h {
     font-weight: bold;
     text-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
-}
-
-.over-text h1 {
-    font-size: 80px;
-}
-
-.over-text h2 {
-    font-size: 60px;
 }
 
 .main-h {
@@ -554,10 +545,6 @@ a, input, select, textarea, button, .view-video, .mirror {
     color: #c79a55;
 }
 
-.rtl {
-    direction: rtl;
-}
-
 /*--------------------------------------
 *********** MEDIA ***********
 --------------------------------------*/
@@ -567,19 +554,15 @@ a, input, select, textarea, button, .view-video, .mirror {
     .navbar-collapse {
         position: fixed;
         top: 0;
-        right: 0;
         z-index: 1000;
         height: 100%;
         width: 240px;
         padding-top: 30px;
         background: #091823;
-        box-shadow: -2px 0 5px 0 rgba(0, 0, 0, 0.5);
     }
 
     .collapse:not(.show) {
         display: block !important;
-        transform: translateX(110%);
-        -webkit-transform: translateX(110%);
     }
 
     .collapse.show {

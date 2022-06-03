@@ -1,7 +1,16 @@
+let lang;
+
 $(window).on('load', function () {
 
-    // PAGE LOADER
+    lang = localStorage['lang'];
+    if (lang !== 'ar' && lang !== 'en') {
+        lang = 'ar';
+        localStorage['lang'] = 'ar';
+    }
 
+    readLangData(lang);
+
+    // PAGE LOADER
     $('.pre-load').stop().animate({opacity:0}, 500, function(){
         $('.pre-load').css({'display':'none'});
         $('body').css({'overflow-y':'auto'});
@@ -21,6 +30,20 @@ $(function() {
     });
     $(window).scroll(function (){
         animateBox();
+    });
+
+
+    // CHANGE LANGUAGE
+
+    $('.change-lang').click(function(e) {
+        e.preventDefault();
+        if($(this).attr('id') == 'selectAR') {
+            readLangData('ar');
+            localStorage['lang'] = 'ar';
+        }else {
+            readLangData('en');
+            localStorage['lang'] = 'en';
+        }
     });
 
 
@@ -66,12 +89,6 @@ $(function() {
         })
     }
 
-
-    // VIDEO POPUP
-
-    
-
-
 });
 
 
@@ -93,6 +110,40 @@ function animateBox() {
     });
 }
 
+
 function windowHeight() {
     $('.win-height').css({'height': ($(window).height() - 96)});
+}
+
+
+function readLangData(newLang) {
+    $.getJSON( "lang/"+ newLang +".json", function( data ) {
+        $.each( data, function( key, val ) {
+            $("[data-lang-text = "+ key +"]").html(val);
+            $("[data-lang-form = "+ key +"]").attr('placeholder', val);
+        });
+
+        let sliderText = data.sliderText,
+            servicesText = data.servicesText;
+
+        for(let i = 0; i < sliderText.length; i++) {
+            $("[data-lang-text = sliderText"+ (i+1) +"]").html(sliderText[i]);
+        }
+        for(let i = 0; i < servicesText.length; i++) {
+            $("[data-lang-text = servicesText"+ (i+1) +"]").html(servicesText[i]);
+        }
+    });
+    
+    $('.dropdown-item').removeClass('active');
+    if(newLang == 'ar') {
+        $('#selectAR').addClass('active');
+        $('.dropdown-toggle').html('AR');
+        $('#mainCss').attr('href', 'css/bootstrap.rtl.min.css');
+        $('#langCss').attr('href', 'css/style-ar.css');
+    }else {
+        $('#selectEN').addClass('active');
+        $('.dropdown-toggle').html('EN');
+        $('#mainCss').attr('href', 'css/bootstrap.min.css');
+        $('#langCss').attr('href', 'css/style-en.css');
+    }
 }

@@ -1,0 +1,29 @@
+body {
+    direction: rtl;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.over-text h1 {
+    font-size: 80px;
+}
+
+.over-text h2 {
+    font-size: 60px;
+}
+
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+        right: -1px;
+        box-shadow: -2px 0 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .collapse:not(.show) {
+        transform: translateX(110%);
+        -webkit-transform: translateX(110%);
+    }
+
+}
