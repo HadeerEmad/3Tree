@@ -1,15 +1,15 @@
 <?php
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = "New Message form 3Tree website";
-$message = $_POST['message'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = "New Message form 3Tree website";
+    $message = $_POST['message'];
 
-$formContent = "From: $name \nEmail: $email  \nMessage: $message";
+    $formContent = "From: $name $lname \n Email: $email  \n Message: $message";
 
-$recipient = "hadeer.cis@gmail.com"; // write email here
-$mailHeader = "From: $email \r\n";
-mail($recipient, $subject, $formContent, $mailHeader) or die("Error!");
-header('Location: index.html');
+    $recipient = "hadeer.cis@gmail.com"; // write email here
+    $mailHeader = "From: $email \r\n";
+    mail($recipient, $subject, $formContent, $mailHeader) or die("Error!");
+    header('Location: index.html');
 
 ?>
