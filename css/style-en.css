@@ -1,3 +1,7 @@
+body {
+    text-align: left;
+}
+
 .over-text h1, .over-text h2 {
     text-transform: capitalize;
 }
