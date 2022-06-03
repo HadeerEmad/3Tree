@@ -6,22 +6,12 @@ TABLE OF CONTENT ::
 2- COLORS
 4- ANIMATION
 5- LOADER
-6- HEADER
-7- NAV
+6- NAV
+7- HEADER
 8- SLIDER
 9- SERVICES
-10- ABOUT
-11- ARTICLES
-12- MAP
-13- FOOTER
-14-
-15-
-16-
-17-
-18-
-19-
-20-
-21- MEDIA QUERY
+10- CONTACT
+11- MEDIA
 
 */
 
@@ -399,6 +389,7 @@ a, input, select, textarea, button, .view-video, .mirror {
 
 .parallax-img img {
     height: 120%;
+    min-width: 100%;
     position: absolute;
     top: 0;
     left: 50%;
